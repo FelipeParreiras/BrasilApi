@@ -1,10 +1,6 @@
 import { MyButton } from "./styles";
 
 function Button() {
-  return (
-    <div>
-      <MyButton></MyButton>
-    </div>
-  );
+  return <MyButton />;
 }
 export default Button;

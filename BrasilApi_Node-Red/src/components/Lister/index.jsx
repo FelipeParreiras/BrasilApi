@@ -1,10 +1,6 @@
 import { MyLister } from "./styles";
 
 function Lister() {
-  return (
-    <div>
-      <MyLister></MyLister>
-    </div>
-  );
+  return <MyLister />;
 }
 export default Lister;

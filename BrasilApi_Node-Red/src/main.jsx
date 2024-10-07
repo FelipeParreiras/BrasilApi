@@ -5,6 +5,7 @@ import Searcher from "./pages/zip_code_searcher";
 import Home from "./pages/home";
 import ErrorPage from "./pages/error";
 import LanginPage from "./pages/langin_page";
+import GlobalStyle from "./globalstyles";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
@@ -31,6 +32,7 @@ const router = createBrowserRouter([
 ]);
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
+    <GlobalStyle />
     <RouterProvider router={router} />
   </React.StrictMode>
 );

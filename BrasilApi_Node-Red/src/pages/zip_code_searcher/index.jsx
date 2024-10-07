@@ -1,6 +1,8 @@
 import { Button } from "../../components/Button/styles";
 import { Input } from "../../components/Input/styles";
-import { Title } from "./styles";
+import { ListerMenu } from "../../components/ListerMenu/styles";
+import { Title, PageContainer } from "./styles";
+import { Seacher } from "../../components/Searcher/styles";
 
 import axios from "axios";
 import React from "react";
@@ -27,38 +29,40 @@ function Searcher() {
   };
 
   return (
-    <div>
+    <PageContainer>
       <Title>Zip Code Searcher</Title>
+      <ListerMenu>
+        <Input
+          type="text"
+          placeholder="Digite o CEP"
+          value={inputCep}
+          onChange={(e) => setInputCep(e.target.value)}
+        />
 
-      <Input
-        type="text"
-        placeholder="Digite o CEP"
-        value={inputCep}
-        onChange={(e) => setInputCep(e.target.value)}
-      />
-
-      <Button onClick={handleGetCep}>Search Zip Code</Button>
-
-      {cepData && (
-        <div>
-          <p>
-            <strong>CEP:</strong> {cepData.cep}
-          </p>
-          <p>
-            <strong>Estado:</strong> {cepData.state}
-          </p>
-          <p>
-            <strong>Cidade:</strong> {cepData.city}
-          </p>
-          <p>
-            <strong>Bairro:</strong> {cepData.neighborhood}
-          </p>
-          <p>
-            <strong>Logradouro:</strong> {cepData.street}
-          </p>
-        </div>
-      )}
-    </div>
+        <Button onClick={handleGetCep}>Search Zip Code</Button>
+      </ListerMenu>
+      <Seacher>
+        {cepData && (
+          <div>
+            <p>
+              <strong>CEP:</strong> {cepData.cep}
+            </p>
+            <p>
+              <strong>Estado:</strong> {cepData.state}
+            </p>
+            <p>
+              <strong>Cidade:</strong> {cepData.city}
+            </p>
+            <p>
+              <strong>Bairro:</strong> {cepData.neighborhood}
+            </p>
+            <p>
+              <strong>Logradouro:</strong> {cepData.street}
+            </p>
+          </div>
+        )}
+      </Seacher>
+    </PageContainer>
   );
 }
 

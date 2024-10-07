@@ -1,13 +1,14 @@
 import styled from 'styled-components'
 
 export const Lister = styled.div `
-  width: max-content;
-  height: 400px;
+  width: 60%;
+  height: 45ch;
   overflow-y: scroll; // Permite a rolagem no eixo Y
   padding: 10px;
   border: 1px solid #ccc; // Um exemplo de borda para o visual
   background-color: #f9f9f9; // Cor de fundo
-  border-radius: 8px; // Bordas arredondadas para um visual mais suave
+  border-radius: 3ch;
+  border-top-left-radius:0ch; // Bordas arredondadas para um visual mais suave
 
   // Estilização para a barra de rolagem
   ::-webkit-scrollbar {
