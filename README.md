@@ -15,4 +15,5 @@ O projeto implementa duas principais funcionalidades:
 
 ## Metodologia:
 Para a realizacao deste projeto foi utilizada a metodologia Kamban, com isso utilizei uma quadro onde foram separadas em Sprints e Artefatos, como visto na imagem a baixo:
+
 ![Quadro Kamban](Kamban.png)
