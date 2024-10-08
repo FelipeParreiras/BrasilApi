@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const ListerMenu = styled.div `
-  width: 60%;
+  width: 40%;
   display:flex;
   flex-direction:row;
   align-items: end;

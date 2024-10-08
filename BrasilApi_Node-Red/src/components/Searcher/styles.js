@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Seacher = styled.div `
-  width: 60%;
+  width: 40%;
   height: 45ch;
   padding: 10px;
   border: 1px solid #ccc;

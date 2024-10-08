@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Lister = styled.div `
-  width: 60%;
+  width: 40%;
   height: 45ch;
   overflow-y: scroll; // Permite a rolagem no eixo Y
   padding: 10px;

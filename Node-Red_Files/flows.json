@@ -1,0 +1,188 @@
+[
+    {
+        "id": "58d56d3fb19bbea2",
+        "type": "tab",
+        "label": "Fluxo 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "b449925cfa78206d",
+        "type": "debug",
+        "z": "58d56d3fb19bbea2",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "url",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 970,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "8e76ca2699b2b9f7",
+        "type": "http request",
+        "z": "58d56d3fb19bbea2",
+        "name": "",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "query",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 660,
+        "y": 220,
+        "wires": [
+            [
+                "b449925cfa78206d",
+                "f59d654de26c79fb"
+            ]
+        ]
+    },
+    {
+        "id": "d0198639f508cd6c",
+        "type": "http in",
+        "z": "58d56d3fb19bbea2",
+        "name": "",
+        "url": "/getcep/:cep",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 280,
+        "y": 220,
+        "wires": [
+            [
+                "93c3421ea67dbbb9"
+            ]
+        ]
+    },
+    {
+        "id": "f59d654de26c79fb",
+        "type": "http response",
+        "z": "58d56d3fb19bbea2",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 930,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "fdfb48e5d6f902c1",
+        "type": "debug",
+        "z": "58d56d3fb19bbea2",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 950,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "5909620d0463196d",
+        "type": "http request",
+        "z": "58d56d3fb19bbea2",
+        "name": "",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "https://brasilapi.com.br/api/cvm/corretoras/v1",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 600,
+        "y": 420,
+        "wires": [
+            [
+                "fdfb48e5d6f902c1",
+                "a808dadc815ce52b"
+            ]
+        ]
+    },
+    {
+        "id": "cb4d911176b64110",
+        "type": "http in",
+        "z": "58d56d3fb19bbea2",
+        "name": "",
+        "url": "/getcorretoras",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 290,
+        "y": 420,
+        "wires": [
+            [
+                "5909620d0463196d"
+            ]
+        ]
+    },
+    {
+        "id": "a808dadc815ce52b",
+        "type": "http response",
+        "z": "58d56d3fb19bbea2",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 910,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "93c3421ea67dbbb9",
+        "type": "function",
+        "z": "58d56d3fb19bbea2",
+        "name": "function 1",
+        "func": "let cep = msg.req.params.cep;  // Captura o CEP da URL\n\n    msg.url = `https://brasilapi.com.br/api/cep/v2/${cep}`;  // Monta a URL da API\n    msg.method = 'GET';  // Define o método GET\n    return msg;  // Retorna a mensagem com a URL e o método\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 220,
+        "wires": [
+            [
+                "8e76ca2699b2b9f7",
+                "e2cd87021f8d3c40"
+            ]
+        ]
+    },
+    {
+        "id": "e2cd87021f8d3c40",
+        "type": "debug",
+        "z": "58d56d3fb19bbea2",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "url",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 690,
+        "y": 300,
+        "wires": []
+    }
+]
